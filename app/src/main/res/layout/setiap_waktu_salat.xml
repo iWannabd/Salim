@@ -21,7 +21,8 @@
         android:textSize="14pt"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/imageView"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:textColor="#686868" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,6 +32,7 @@
         android:id="@+id/waktuna"
         android:gravity="right"
         android:layout_alignTop="@+id/salatna"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="#888888" />
 
 </RelativeLayout>
