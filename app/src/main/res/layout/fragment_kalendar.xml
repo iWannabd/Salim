@@ -1,13 +1,16 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="layout.evaluasi">
+    tools:context="layout.Kalendar"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <CalendarView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="halo ini evaluasi" />
-
-</FrameLayout>
+        android:id="@+id/kalender"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

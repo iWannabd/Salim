@@ -7,18 +7,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 
 import com.example.kucing.salim.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link evaluasi.OnFragmentInteractionListener} interface
+ * {@link Kalendar.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link evaluasi#newInstance} factory method to
+ * Use the {@link Kalendar#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class evaluasi extends Fragment {
+public class Kalendar extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,8 +30,9 @@ public class evaluasi extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    CalendarView kalender;
 
-    public evaluasi() {
+    public Kalendar() {
         // Required empty public constructor
     }
 
@@ -40,11 +42,11 @@ public class evaluasi extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment evaluasi.
+     * @return A new instance of fragment Kalendar.
      */
     // TODO: Rename and change types and number of parameters
-    public static evaluasi newInstance(String param1, String param2) {
-        evaluasi fragment = new evaluasi();
+    public static Kalendar newInstance(String param1, String param2) {
+        Kalendar fragment = new Kalendar();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,7 +67,16 @@ public class evaluasi extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_evaluasi, container, false);
+        View v = inflater.inflate(R.layout.fragment_kalendar, container, false);
+        kalender = (CalendarView) v.findViewById(R.id.kalender);
+        initCalendar();
+        return v;
+    }
+
+    public void initCalendar(){
+        kalender.setShowWeekNumber(false);
+        kalender.setFirstDayOfWeek(2);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -85,7 +96,6 @@ public class evaluasi extends Fragment {
                     + " must implement OnFragmentInteractionListener");
         }
     }
-
 
     @Override
     public void onDetach() {
