@@ -30,7 +30,6 @@ public class Kalendar extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    CalendarView kalender;
 
     public Kalendar() {
         // Required empty public constructor
@@ -68,16 +67,9 @@ public class Kalendar extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_kalendar, container, false);
-        kalender = (CalendarView) v.findViewById(R.id.kalender);
-        initCalendar();
         return v;
     }
 
-    public void initCalendar(){
-        kalender.setShowWeekNumber(false);
-        kalender.setFirstDayOfWeek(2);
-
-    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

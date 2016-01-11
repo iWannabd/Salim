@@ -3,14 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="layout.Kalendar"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
     <!-- TODO: Update blank fragment layout -->
 
-
-    <CalendarView
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/kalender"
-        android:layout_gravity="center_horizontal" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.14">
+    </com.prolificinteractive.materialcalendarview.MaterialCalendarView>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="137dp"
+        android:id="@+id/jasoall" />
+
 </LinearLayout>
+

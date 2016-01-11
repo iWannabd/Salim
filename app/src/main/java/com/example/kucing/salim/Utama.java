@@ -1,6 +1,8 @@
 package com.example.kucing.salim;
 
+import android.app.ActionBar;
 import android.net.Uri;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
    
@@ -11,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import layout.Hadits;
 import layout.Kalendar;
@@ -46,11 +49,16 @@ public class Utama extends AppCompatActivity
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
+        if (getSupportActionBar()!=null)
+            getSupportActionBar().hide();
+
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-      
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
     }
 
     @Override
@@ -113,11 +121,11 @@ public class Utama extends AppCompatActivity
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "Jadwal";
                 case 1:
-                    return "SECTION 2";
+                    return "Hadits";
                 case 2:
-                    return "SECTION 3";
+                    return "Kalender";
                 default:
                     return null;
             }
