@@ -25,8 +25,6 @@ public class jadwalSholatAdapter extends BaseAdapter {
     public Resources res;
     modelListJadwalSolat tempValues= null;
 
-    int i = 0;
-
     public jadwalSholatAdapter(Activity act, ArrayList al,Resources resLocal){
         activity = act;
         data = al;

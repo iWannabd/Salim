@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import layout.Hadits;
 import layout.Kalendar;
@@ -48,7 +51,7 @@ public class Utama extends AppCompatActivity
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
+        //hide toolbar
         if (getSupportActionBar()!=null)
             getSupportActionBar().hide();
 
@@ -58,6 +61,10 @@ public class Utama extends AppCompatActivity
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+        // Set up the drawer menu for setting and about activity
+        String[] prefmen = {"About","Preference"};
+        ListView prefMenu = (ListView) findViewById(R.id.drawerMenu);
+        prefMenu.setAdapter(new ArrayAdapter(this,android.R.layout.simple_list_item_1,prefmen));
 
     }
 
