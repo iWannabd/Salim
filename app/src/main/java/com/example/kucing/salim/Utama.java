@@ -1,6 +1,6 @@
 package com.example.kucing.salim;
 
-import android.app.ActionBar;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +14,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import layout.Hadits;
@@ -62,9 +62,34 @@ public class Utama extends AppCompatActivity
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         // Set up the drawer menu for setting and about activity
-        String[] prefmen = {"About","Preference"};
+        String[] prefmen = {"About","Preference", "Statistic"};
         ListView prefMenu = (ListView) findViewById(R.id.drawerMenu);
-        prefMenu.setAdapter(new ArrayAdapter(this,android.R.layout.simple_list_item_1,prefmen));
+        prefMenu.setDivider(null);
+        prefMenu.setAdapter(new PrefMenuAdapter(this,prefmen));
+        prefMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 1:
+                        Intent bukaPreferen = new Intent(Utama.this, PrefActivity.class);
+                        startActivity(bukaPreferen);
+                        break;
+                    case 0:
+                        Intent bukaAbout = new Intent(Utama.this, AboutUs.class);
+                        startActivity(bukaAbout);
+                        break;
+                }
+            }
+            @SuppressWarnings("unused") public void onClick(View v){}
+        });
+
+        //mengenai menu bulat di tengah
+//        ImageButton mainButton = (ImageButton) findViewById(R.id.main_button);
+//        mainButton.setOnClickListener(new Button.OnClickListener(){
+//            public void onClick(View v){
+//
+//            }
+//        });
 
     }
 
@@ -178,3 +203,4 @@ public class Utama extends AppCompatActivity
         //you can leave it empty
     }
 }
+
